@@ -13,4 +13,19 @@ body {
   height: 48vh;
   margin-top: 25vh;
   border-radius: 30px;
+  box-shadow: 0 0 2em rgb(0, 0, 0);
+}
+.title {
+  position: relative;
+  top: -44px;
+  font-size: 21px;
+  left: -61px;
+  color: white;
+}
+.top-picture {
+  position: relative;
+top: -74px;
+font-size: 21px;
+left: 98px;
+width: 114px;
 }

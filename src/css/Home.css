@@ -1,0 +1,23 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  padding: 15px;
+}
+.home > h2 {
+  color: #2f527b;
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+.home > button {
+  width: 139px;
+  height: 44px;
+  border: 2px solid #1d355d;
+  box-sizing: border-box;
+  border-radius: 12px;
+  position: relative;
+  top: 30px;
+  box-shadow: 0 0 2em rgb(0, 0, 0);
+}

@@ -2,7 +2,7 @@ import React from 'react'
 
 function SwitchNext() {
     return (
-        <div>
+        <div className="global-contain">
             
         </div>
     )

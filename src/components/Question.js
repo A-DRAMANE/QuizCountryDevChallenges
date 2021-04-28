@@ -2,7 +2,8 @@ import React from 'react'
 
 function Question() {
     return (
-        <div>
+        <div className="global-contain">
+            <h1>COUNTRY QUIZ</h1>
             
         </div>
     )
