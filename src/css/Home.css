@@ -10,8 +10,11 @@
   color: #2f527b;
   font-size: 16px;
   margin-bottom: 15px;
+  position: relative;
+  top: -36px;
 }
 .home > button {
+  cursor: pointer;
   width: 139px;
   height: 44px;
   border: 2px solid #1d355d;
@@ -19,5 +22,5 @@
   border-radius: 12px;
   position: relative;
   top: 30px;
-  box-shadow: 0 0 2em rgb(0, 0, 0);
+  box-shadow: 0 0 2em rgb(204, 22, 22);
 }
