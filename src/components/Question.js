@@ -1,26 +1,23 @@
 import React, { useState,useEffect } from 'react'
 import images from '../images/../images/undraw_adventure_4hum 1.svg'
 import SwitchNext from './SwitchNext'
-import { TabFourQuestion,getRandom0_3 } from './CallData'
-import { setsetUseResult,setObjetQuestion } from '../localStorage/setData'
-import { getQuestionData, getReady, getObjetQuestion } from '../localStorage/getData'
+import { getRandom0_3 } from './CallData'
+import { setUseResult } from '../localStorage/setData'
+import {  getObjetQuestion,getUseValue } from '../localStorage/getData'
 import { useHistory } from 'react-router';
 import '../css/Question.css'
 
 
 function Question() {
-    //pull 40 country from localStorage
+    
+    let finalResult = 0;
     let history = useHistory()
-    let step4 = 0;
+    const [final, setFinal] = useState(0)
     let ba = false;
-    const [pasDejaClique, setPasDejaClique] = useState(false);
+    let pasDejaClique = false
     const [currentQ, setCurrentQ] = useState(1);
     let objet;
     let cible;
-    let t = `t${currentQ}`
-    console.log(getObjetQuestion());
-
-        let ObjetQuestion = [] ;
 
         if (ba === false) {
             objet = getObjetQuestion()[currentQ-1];
@@ -28,26 +25,16 @@ function Question() {
             ba = true;
         }
 
-        if (getReady() === 1) {
-            for (let i = 0; i<10;i++) {
-                ObjetQuestion.push(TabFourQuestion(getQuestionData(),step4))
-                step4 = step4 + 4
-            }
-            setObjetQuestion(ObjetQuestion)
-        }else{
-            localStorage.clear();
-            history.push("/");
-        }
 
         useEffect(() => {
             objet = getObjetQuestion()[currentQ-1];
             cible = objet[getRandom0_3(4)];
-            console.log("aa",objet);
-            setPasDejaClique (false);
+            pasDejaClique = false;
         }, [currentQ])
 
     const handleNext = () =>{
         if (currentQ === 10) {
+            setUseResult(getUseValue());
             history.push("/result");
         }else{
             setCurrentQ(c => c + 1);
@@ -62,18 +49,16 @@ function Question() {
             if(targetChoix === response){
                 console.log("c'est le bon");
                 handleBonChoix(true,targetChoix);
-                setPasDejaClique (true);
+                setUseResult(getUseValue()+1)
+                pasDejaClique = false
+                console.log(getUseValue());
             }else{
                 console.log("raté");
                 handleBonChoix(false,targetChoix);
                 handleBonChoix(true,response);
-                setPasDejaClique (true);
+                pasDejaClique = false
             }
-        } else {
-            
         }
-        
-        console.log(targetChoix);
     }
 
     const handleBonChoix = (a,id) => {
@@ -93,7 +78,7 @@ function Question() {
             let bonChoix = document.getElementById(id)
             button_next.style.display = 'block'
             bonChoix.style.background = '#EA8282'
-            bonChoix.style.color = currentQ === 10 ? '#b0ff01' : '#FFFFFF' 
+            bonChoix.style.color = '#FFFFFF'; 
             if (currentQ === 10 ) {
                 button_next.style.color = '#b0ff01';
                 button_next.style.background = '#000';
@@ -116,7 +101,7 @@ function Question() {
                 <h3>Question:  <span>{currentQ}</span>/ 10</h3>
             </div>
 
-            <SwitchNext  
+            <SwitchNext 
                 handleNext={handleNext}
                 handleChoix={handleChoix}
                 currentQ={currentQ}

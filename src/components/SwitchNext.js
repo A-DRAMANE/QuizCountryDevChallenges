@@ -11,12 +11,12 @@ function useForceUpdate(){
 }
 
 
-function SwitchNext({handleChoix,handleNext,currentQ,objet,cible}) {
+function SwitchNext({handleChoix,handleNext,objet,cible}) {
     const handleNextChoise = () =>{
         handleNext();
-        forceUpdate();
+        //forceUpdate();
     }
-    const forceUpdate = useForceUpdate();
+    //const forceUpdate = useForceUpdate();
     const [bool, setBool] = useState(true)
     
 

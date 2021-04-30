@@ -39,3 +39,5 @@ export function TabFourQuestion(data,i){
         return TabQuestion;
     }
 }
+
+export let ObjetQuestion = [] ;

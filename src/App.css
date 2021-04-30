@@ -9,8 +9,8 @@ body {
 
 .global-contain {
   background-color: white;
-  width: 42vh;
-  height: 48vh;
+  width: 48vh;
+  height: 53vh;
   margin-top: 25vh;
   border-radius: 30px;
   box-shadow: 0 0 2em rgb(0, 0, 0);
@@ -24,8 +24,8 @@ body {
 }
 .top-picture {
   position: relative;
-top: -74px;
-font-size: 21px;
-left: 98px;
-width: 114px;
+  top: -74px;
+  font-size: 21px;
+  left: 98px;
+  width: 114px;
 }
