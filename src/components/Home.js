@@ -1,18 +1,16 @@
 import React,{ useEffect, useState} from 'react'
 import '../css/Home.css'
-import images from '../images/../images/undraw_adventure_4hum 1.svg'
+import images from '../images/undraw_adventure_4hum 1.svg'
 import { getData, getRandomInt, TabFourQuestion } from './CallData'
-import { setQuestionData, setUseValue } from '../localStorage/setData'
+import { setQuestionData,setReady } from '../localStorage/setData'
 import { getQuestionData } from '../localStorage/getData'
-
+import { useHistory } from 'react-router';
 
 
 function Home() {
     //global variable
-    const [questions, setQuestions] = useState([])
+    let history = useHistory();
 
-
-    let bool = false;
 
     useEffect(() => {
         let button = document.querySelector('.button')
@@ -22,33 +20,35 @@ function Home() {
                 .then(response => response.json())
                 .then((response) => {
 
-                    //set array of 40 country in localStoragze
+                    setReady();
+                    //set array of 40 country in localStorage
                     let dataPays = [];
                     dataPays = getData(response,getRandomInt(250))
-                    console.log(dataPays);
                     setQuestionData(dataPays);
+                    console.log(localStorage);
 
-                    //change button color
+                    //change button color and Start
                     button.innerHTML = "START"
                     button.style.boxShadow = "0 0 2em rgb(1, 77, 100)"
                     button.style.color = "green"
-                    
-                    console.log(getQuestionData());
-                    console.log("voir",TabFourQuestion(getQuestionData(),5));
                 })
                 .catch((response) => console.log("ERREUR",response))
             } catch (e) {
                 console.error("probleme lors du chargement",e);
             }
         }else {
-            //change button color
+            //change button color and Start
             button.innerHTML = "START"
             button.style.boxShadow = "0 0 2em rgb(1, 77, 100)"
             button.style.color = "green"
         };
 }, [])
 
-    //function show ich question
+    const handleStart = (e) =>{
+        e.preventDefault();
+        console.log('work');
+        history.push("/question");
+    }
 
 
     
@@ -64,9 +64,9 @@ function Home() {
             <div className="home">
                 <h2>Country QUIZ small app to test your general knowledge of countries around the world.
                     <br/> Play, have fun, the goal is to be happy,
-                    <br/> by Fils_du_Faso.{bool}
+                    <br/> by Fils_du_Faso.
                 </h2>
-                <button className="button">load questions...</button>
+                <button className="button" onClick={handleStart}>load questions...</button>
             </div>
         </div>
     )

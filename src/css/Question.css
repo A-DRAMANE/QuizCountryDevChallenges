@@ -1,0 +1,19 @@
+.question {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.question > h3 {
+  position: relative;
+  left: -80px;
+  top: -107px;
+  font-size: medium;
+  color: darkblue;
+}
+
+.question > h3 > span {
+  color: brown;
+  font-size: 24px;
+}

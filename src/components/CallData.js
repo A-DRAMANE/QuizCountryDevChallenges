@@ -3,8 +3,12 @@
 export function getRandomInt(max) {
     return Math.floor(Math.random() * max);}
 
+    //function generate random data for select country in scale of 0 to 3
+export function getRandom0_3(max) {
+    return Math.floor(Math.random() * max);}
 
-    //function pull data from localStorage
+
+    //function return array of 40 country for the test
 export function getData(get,randomNumb){
     const scale = randomNumb+40;
     let data = [];
