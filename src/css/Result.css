@@ -44,3 +44,18 @@
   color: #1d355d;
   font-size: 18px;
 }
+
+.description-good {
+  color: #5bc145;
+  font-weight: bold;
+  position: relative;
+  bottom: -15px;
+}
+
+.description-bad {
+  color: #eb725d;
+  font-weight: bold;
+  position: relative;
+  bottom: -15px;
+}
+

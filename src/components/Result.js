@@ -25,6 +25,12 @@ function Result() {
                     <div>you got <span className="test_value">{getUseValue()}</span> correct answers</div>
                 </div>
 
+                <br/>
+                <br/>
+                    
+                    
+                <p>{ getUseValue() >= 5 ? <span className="description-good">Waouh ,well done you have a good level</span> : <span className="description-bad">sorry, not the average but you can do better and learn more, try again</span>}</p>
+
                 <button onClick={handleTryAgain}>Try again</button>
             </div>
 

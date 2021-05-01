@@ -7,10 +7,18 @@ body {
   background-size: cover;
 }
 
+.app{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-family: "Poppins", sans-serif;
+}
+
 .global-contain {
   background-color: white;
   width: 48vh;
-  height: 65vh;;
+  height: 65vh;
   margin-top: 25vh;
   border-radius: 30px;
   box-shadow: 0 0 2em rgb(0, 0, 0);
