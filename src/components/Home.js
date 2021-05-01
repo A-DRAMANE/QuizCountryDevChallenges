@@ -40,13 +40,17 @@ function Home() {
 
     
     return (
+        <>
+        <h1 className="title">COUNTRY QUIZ</h1>
         <div className="global-contain">
-            <h1 className="title">COUNTRY QUIZ</h1>
-            <img
-                className="top-picture"
-                src={images}
-                alt="adventure"
-            />
+            <div className="home_home">
+                <h3>HOME</h3>
+                <img
+                    className="top-picture"
+                    src={images}
+                    alt="adventure"
+                />
+            </div>
 
             <div className="home">
                 <h2>Country QUIZ small app to test your general knowledge of countries around the world.
@@ -56,6 +60,7 @@ function Home() {
                 <button className="button" onClick={handleStart}>load questions...</button>
             </div>
         </div>
+        </>
     )
 }
 

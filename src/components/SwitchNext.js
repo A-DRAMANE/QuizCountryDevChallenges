@@ -17,14 +17,50 @@ function SwitchNext({handleChoix,handleNext,objet,cible}) {
     }
     const forceUpdate = useForceUpdate();
 
+    //add load country annimation
+    console.log(nbrPremier(getMyCurrent()));
+    if (nbrPremier(getMyCurrent()) === true) {
+        let load = document.querySelector(".flag")
+        console.log(load);
+        //load.classList.add("part")
+        load.classList.add("load")
+
+        try {
+            fetch(cible?.flag)
+                .then((response) => {
+                 //ici
+                    console.log("zoo");
+                    console.log("1",response);
+
+                    
+                    load.classList.remove("load")
+                })
+                .catch((response) => console.log("ERREUR",response))
+        } catch (e) {
+            console.log(e);
+        }
+    }
+
+    if (nbrPremier(getMyCurrent()) === false) {
+        let part = document.querySelector(".hidden");
+    console.log(part);
+    let load = document.querySelector(".flag")
+        console.log(load);
+        
+    }
+    
 
     return (
-        <>{nbrPremier(getMyCurrent()) === false ?//verifie si la question en cour est premier pour une action
+        <>
+        <div className="hidden" style={nbrPremier(getMyCurrent()) === false ? {display:'none'} : {display:'flex'}}>
+            <div className="flag" style={{backgroundImage:`url(${cible.flag})` }}></div>
+        </div>
+        {nbrPremier(getMyCurrent()) === false ?//verifie si la question en cour est premier pour une action
         
         // n'est pas premier question portant sur la capital
         getReady() === 1 ? <div className="switch">
 
-        <div className="switch__question">{cible?.capital} is the capital of</div>
+        <div className="switch__question"><span className="capital">{cible?.capital}</span> is the capital of</div>
 
         <ul>
             {
@@ -40,22 +76,22 @@ function SwitchNext({handleChoix,handleNext,objet,cible}) {
                 })
             }
         </ul>
+        <div className="button-switch">
         <button 
             style={{display:'none'}} 
             className="button_next"
             onClick={handleNextChoise}
         >Next</button>
+        </div>
     </div> : "reeur" : 
     
     //est premier question portant sur le drapeau
     getReady() === 1 ? <div className="switch">
 
         <div className="switch__question">
-            <img
-                className="pic_target_country"
-                alt="flag"
-                src={cible?.flag}
-        ></img> which country does this flag belong to?</div>
+            <div className="flag_question">
+            <div>which country does this flag belong to?</div></div>
+            </div>
 
         <ul>
             {
@@ -71,11 +107,13 @@ function SwitchNext({handleChoix,handleNext,objet,cible}) {
                 })
             }
         </ul>
+        <div className="button-switch">
         <button 
             style={{display:'none'}} 
             className="button_next"
             onClick={handleNextChoise}
         >Next</button>
+        </div>
     </div> : "reeur"}  </>
         
     )

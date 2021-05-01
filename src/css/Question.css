@@ -1,14 +1,11 @@
 .question {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  padding-left: 20px;
 }
 
 .question > h3 {
-  position: relative;
-  left: -80px;
-  top: -107px;
   font-size: medium;
   color: darkblue;
 }

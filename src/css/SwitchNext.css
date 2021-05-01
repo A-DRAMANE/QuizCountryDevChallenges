@@ -1,18 +1,17 @@
 .switch {
-  position: relative;
-  left: -37px;
-  top: -47px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  align-items: baseline;
+  justify-content: space-between;
+  width: 100%;
+  padding: 15px;
 }
 .choix {
   box-sizing: border-box;
   text-align: start;
   color: #6066d0;
   list-style-type: none;
-  width: 300px;
+  width: 100%;
   height: 48px;
   background: #ffffff;
   border: 2px solid rgba(96, 102, 208, 0.7);
@@ -24,30 +23,34 @@
   padding-top: 5px;
   cursor: pointer;
 }
-.switch > button {
+
+.button-switch {
+  display: flex;
+  justify-content: end;
+  width: 100%;
+}
+.button_next {
   width: 83px;
   height: 40px;
   color: #ffffff;
   background: #f9a826;
   border-radius: 12px;
-  position: relative;
-  left: 100px;
-  bottom: -16px;
   font-size: large;
   font-weight: bold;
   cursor: pointer;
 }
 .switch__question {
-  position: relative;
   font-weight: bold;
-  bottom: 35px;
-  right: -36px;
   color: #2f527b;
 }
 ul {
-  position: relative;
-  top: 5px;
-  left: 36px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 25px;
+  width: 300px;
+  margin-bottom: 25px;
+  align-items: center;
+  justify-content: center;
 }
 
 .button_fin {
@@ -56,17 +59,54 @@ ul {
   color: #b0ff01;
   background: #000;
   border-radius: 12px;
-  position: relative;
   left: 100px;
   bottom: 33px;
   font-size: large;
   font-weight: bold;
   cursor: pointer;
 }
-.pic_target_country {
-  width: 52px;
-  height: 36px;
-  position: relative;
-  bottom: -21px;
+.flag {
+  width: 60px;
+  height: 40px;
+  background-size: cover;
+  align-self: center;
   border: 2px solid black;
+}
+.hidden {
+  justify-content: center;
+  width: 100%;
+}
+
+.flag.part {
+  display: none;
+}
+
+.flag_question {
+  display: flex;
+}
+
+.load {
+  width: 40px;
+  height: 40px;
+  background-size: cover;
+  border: 5px solid #e5e5e5;
+  border-radius: 50%;
+  border-top: 5px solid blue;
+  box-shadow: 0, 0, 6px, 2px black;
+  animation: loader 1s linear infinite;
+  align-self: center;
+}
+
+.capital {
+  font-size: 32px;
+  color: maroon;
+}
+
+@keyframes loader {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

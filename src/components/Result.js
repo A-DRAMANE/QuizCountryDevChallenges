@@ -11,9 +11,10 @@ function Result() {
         history.push("/");
     }
 
-    return (
+    return (<>
+        <h1 className="title">COUNTRY QUIZ</h1>
         <div className="global-contain">
-            <h1 className="title">COUNTRY QUIZ</h1>
+        
             <div className="result">
                 <img
                     className="top-winner"
@@ -24,17 +25,13 @@ function Result() {
                     <h1 className="result_tiyle">Results</h1>
                     <div>you got <span className="test_value">{getUseValue()}</span> correct answers</div>
                 </div>
-
-                <br/>
-                <br/>
-                    
                     
                 <p>{ getUseValue() >= 5 ? <span className="description-good">Waouh ,well done you have a good level</span> : <span className="description-bad">sorry, not the average but you can do better and learn more, try again</span>}</p>
 
                 <button onClick={handleTryAgain}>Try again</button>
             </div>
 
-        </div>
+        </div></>
     )
 }
 

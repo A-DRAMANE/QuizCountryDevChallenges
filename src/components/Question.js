@@ -48,11 +48,11 @@ function Question() {
             if(targetChoix === response){
                 handleBonChoix(true,targetChoix);
                 setUseResult(getUseValue()+1)
-                pasDejaClique = false
+                pasDejaClique = true
             }else{
                 handleBonChoix(false,targetChoix);
                 handleBonChoix(true,response);
-                pasDejaClique = false
+                pasDejaClique = true
             }
         }
     }
@@ -85,16 +85,16 @@ function Question() {
     }
 
     return (
+        <>
+        <h1 className="title">COUNTRY QUIZ</h1>
         <div className="global-contain">
-            <h1 className="title">COUNTRY QUIZ</h1>
-            <img
-                className="top-picture"
-                src={images}
-                alt="adventure"
-            />
-
             <div className="question">
                 <h3>Question:  <span>{currentQ}</span>/ 10</h3>
+                <img
+                    className="top-picture"
+                    src={images}
+                    alt="adventure"
+                />
             </div>
 
             <SwitchNext 
@@ -107,6 +107,7 @@ function Question() {
                 />
             
         </div>
+        </>
     )
 }
 

@@ -18,8 +18,6 @@
   border-radius: 12px;
   color: #1d355d;
   background: #ffffff;
-  position: relative;
-  bottom: -36px;
   font-size: large;
   font-weight: bold;
   cursor: pointer;
@@ -48,14 +46,13 @@
 .description-good {
   color: #5bc145;
   font-weight: bold;
-  position: relative;
-  bottom: -15px;
 }
 
 .description-bad {
   color: #eb725d;
   font-weight: bold;
-  position: relative;
-  bottom: -15px;
 }
 
+.result > p{
+  padding: 25px;
+}
