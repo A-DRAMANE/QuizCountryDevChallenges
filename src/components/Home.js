@@ -1,9 +1,9 @@
 import React,{ useEffect, useState} from 'react'
 import '../css/Home.css'
 import images from '../images/undraw_adventure_4hum 1.svg'
-import { getData, getRandomInt, TabFourQuestion, ObjetQuestion } from './CallData'
-import { setQuestionData,setReady, setObjetQuestion,setUseResult } from '../localStorage/setData'
-import { getQuestionData, getReady } from '../localStorage/getData'
+import { getData, ObjetQuestion, RepareQuestionFormAndAll } from './CallData'
+import { setQuestionData, setReady, setObjetQuestion, setUseResult, setResponse, setMyCurrent } from '../localStorage/setData'
+import { getQuestionData, getResponse } from '../localStorage/getData'
 import { useHistory } from 'react-router';
 
 
@@ -11,50 +11,29 @@ function Home() {
     //global variable
     let history = useHistory();
 
-    console.log("localStorage",localStorage);
     useEffect(() => {
         let button = document.querySelector('.button')
-        if (!getQuestionData()) {
+        if (!getResponse()) {
             try {
                 fetch("https://restcountries.eu/rest/v2/all")
                 .then(response => response.json())
                 .then((response) => {
-                    let step4 = 0;
-                    setReady();
-                    //set array of 40 country in localStorage
-                    let dataPays = [];
-                    dataPays = getData(response,getRandomInt(250))
-                    setQuestionData(dataPays);
-                    console.log("1",ObjetQuestion);
+                    //save the api result in localStorage
+                    setResponse(response);
 
-                        for (let i = 0; i<10;i++) {
-                            ObjetQuestion.push(TabFourQuestion(getQuestionData(),step4))
-                            step4 = step4 + 4
-                        }
-                        setObjetQuestion(ObjetQuestion)
-                        setUseResult(0);
-                        console.log("1",ObjetQuestion);
-
-                    //change button color and Start
-                    button.innerHTML = "START"
-                    button.style.boxShadow = "0 0 2em rgb(1, 77, 100)"
-                    button.style.color = "green"
+                    RepareQuestionFormAndAll(ObjetQuestion, getData,setReady,getResponse,setQuestionData,getQuestionData,setObjetQuestion,setUseResult,button,setMyCurrent)
                 })
                 .catch((response) => console.log("ERREUR",response))
             } catch (e) {
                 console.error("probleme lors du chargement",e);
             }
         }else {
-            //change button color and Start
-            button.innerHTML = "START"
-            button.style.boxShadow = "0 0 2em rgb(1, 77, 100)"
-            button.style.color = "green"
+            RepareQuestionFormAndAll(ObjetQuestion, getData,setReady,getResponse,setQuestionData,getQuestionData,setObjetQuestion,setUseResult,button,setMyCurrent)
         };
 }, [])
 
     const handleStart = (e) =>{
         e.preventDefault();
-        console.log('work');
         history.push("/question");
     }
 

@@ -5,11 +5,9 @@ import { useHistory } from 'react-router';
 import '../css/Result.css'
 
 function Result() {
-    console.log(getUseValue());
     let history = useHistory();
 
     const handleTryAgain = () =>{
-        localStorage.clear();
         history.push("/");
     }
 

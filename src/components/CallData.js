@@ -40,4 +40,33 @@ export function TabFourQuestion(data,i){
     }
 }
 
+export function RepareQuestionFormAndAll(ObjetQuestion, getData,setReady,getResponse,setQuestionData,getQuestionData,setObjetQuestion,setUseResult,button,setMyCurrent){
+    let step4 = 0;
+    setMyCurrent(1)
+    setReady();
+    //set array of 40 country in localStorage
+    let dataPays = [];
+    dataPays = getData(getResponse(),getRandomInt(250))
+    setQuestionData(dataPays);
+
+        for (let i = 0; i<10;i++) {
+            ObjetQuestion.push(TabFourQuestion(getQuestionData(),step4))
+            step4 = step4 + 4
+        }
+        setObjetQuestion(ObjetQuestion)
+        setUseResult(0);
+
+    //change button color and Start
+    button.innerHTML = "START"
+    button.style.boxShadow = "0 0 2em rgb(1, 77, 100)"
+    button.style.color = "green"
+}
+
+//fonction verifie si un nombre est premier ou non
+export function nbrPremier(nbr) {
+    for(var i = 2; i < nbr; i++)
+      if(nbr%i === 0) return false;
+    return nbr > 1;
+  }
+
 export let ObjetQuestion = [] ;

@@ -14,3 +14,11 @@ export function setReady() {
 export function setObjetQuestion(data) {
     localStorage.setItem('ObjetQuestion', JSON.stringify(data))
 }
+
+export function setResponse(data) {
+    localStorage.setItem('Response', JSON.stringify(data))
+}
+
+export function setMyCurrent(data) {
+    localStorage.setItem('current', JSON.stringify(data))
+}

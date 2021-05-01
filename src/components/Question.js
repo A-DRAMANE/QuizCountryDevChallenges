@@ -2,17 +2,15 @@ import React, { useState,useEffect } from 'react'
 import images from '../images/../images/undraw_adventure_4hum 1.svg'
 import SwitchNext from './SwitchNext'
 import { getRandom0_3 } from './CallData'
-import { setUseResult } from '../localStorage/setData'
-import {  getObjetQuestion,getUseValue } from '../localStorage/getData'
+import { setUseResult, setMyCurrent } from '../localStorage/setData'
+import {  getObjetQuestion, getUseValue, getMyCurrent } from '../localStorage/getData'
 import { useHistory } from 'react-router';
 import '../css/Question.css'
 
 
 function Question() {
     
-    let finalResult = 0;
     let history = useHistory()
-    const [final, setFinal] = useState(0)
     let ba = false;
     let pasDejaClique = false
     const [currentQ, setCurrentQ] = useState(1);
@@ -38,6 +36,7 @@ function Question() {
             history.push("/result");
         }else{
             setCurrentQ(c => c + 1);
+            setMyCurrent(getMyCurrent() + 1)
             let button_next = document.querySelector('.button_next');
             button_next.style.display = 'none';}
         
@@ -47,13 +46,10 @@ function Question() {
         
         if (pasDejaClique === false) {
             if(targetChoix === response){
-                console.log("c'est le bon");
                 handleBonChoix(true,targetChoix);
                 setUseResult(getUseValue()+1)
                 pasDejaClique = false
-                console.log(getUseValue());
             }else{
-                console.log("raté");
                 handleBonChoix(false,targetChoix);
                 handleBonChoix(true,response);
                 pasDejaClique = false
@@ -107,6 +103,7 @@ function Question() {
                 currentQ={currentQ}
                 objet={objet}
                 cible={cible}
+                currentQ={currentQ}
                 />
             
         </div>

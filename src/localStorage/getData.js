@@ -30,3 +30,19 @@ export function getObjetQuestion () {
         return data;
     }else return false;
 }
+
+export function getResponse () {
+    let result = localStorage.getItem('Response');
+    if(result !== "undefined") {
+        let data = JSON.parse(result);
+        return data;
+    }else return false;
+}
+
+export function getMyCurrent() {
+    let result = localStorage.getItem('current');
+    if(result !== "undefined") {
+        let status = JSON.parse(result);
+        return status;
+    }else return false;
+}
