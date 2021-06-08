@@ -18,10 +18,8 @@ function SwitchNext({handleChoix,handleNext,objet,cible}) {
     const forceUpdate = useForceUpdate();
 
     //add load country annimation
-    console.log(nbrPremier(getMyCurrent()));
     if (nbrPremier(getMyCurrent()) === true) {
         let load = document.querySelector(".flag")
-        console.log(load);
         //load.classList.add("part")
         load.classList.add("load")
 
@@ -29,9 +27,6 @@ function SwitchNext({handleChoix,handleNext,objet,cible}) {
             fetch(cible?.flag)
                 .then((response) => {
                  //ici
-                    console.log("zoo");
-                    console.log("1",response);
-
                     
                     load.classList.remove("load")
                 })
@@ -43,9 +38,7 @@ function SwitchNext({handleChoix,handleNext,objet,cible}) {
 
     if (nbrPremier(getMyCurrent()) === false) {
         let part = document.querySelector(".hidden");
-    console.log(part);
     let load = document.querySelector(".flag")
-        console.log(load);
         
     }
     

@@ -26,7 +26,7 @@
 
 .button-switch {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   width: 100%;
 }
 .button_next {
